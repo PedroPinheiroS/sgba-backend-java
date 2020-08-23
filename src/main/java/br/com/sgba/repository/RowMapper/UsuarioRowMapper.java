@@ -14,7 +14,7 @@ public class UsuarioRowMapper implements RowMapper<Usuario> {
         usuario.setId(resultSet.getLong("usuario_id"));
         usuario.setContaBloqueada(resultSet.getBoolean("conta_bloqueada"));
         usuario.setSenha(resultSet.getString("senha"));
-        usuario.setLogin(resultSet.getString("usuario"));
+        usuario.setLogin(resultSet.getString("login"));
 
         return usuario;
     }

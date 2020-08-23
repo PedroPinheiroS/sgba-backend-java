@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class Funcionario {
 
     Long idFuncionario;
+    Long idUsuario;
     String nome;
     LocalDateTime horarioEntradaServico;
     LocalDateTime horarioSaidaServico;
@@ -20,6 +21,14 @@ public class Funcionario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public LocalDateTime getHorarioEntradaServico() {

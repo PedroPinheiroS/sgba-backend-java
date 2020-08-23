@@ -6,7 +6,9 @@ import br.com.sgba.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class FuncionarioRepositoryImpl implements FuncionarioRepository {
 
     @Autowired
@@ -23,11 +25,6 @@ public class FuncionarioRepositoryImpl implements FuncionarioRepository {
         map.addValue("idUsuario", usuarioId).addValue("nomeFuncionario", funcionario.getNome());
 
         template.update(query.toString(), map);
-    }
-
-    @Override
-    public Funcionario buscarFuncionarioPorNome(String nome) {
-        return null;
     }
 
     @Override
