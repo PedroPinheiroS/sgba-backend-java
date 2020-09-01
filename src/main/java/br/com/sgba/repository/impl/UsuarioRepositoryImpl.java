@@ -21,12 +21,11 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 
         StringBuilder sql = new StringBuilder();
 
-        sql.append("select * from usuario where usuario = :user");
+        sql.append("select * from usuario where login = :user");
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource().addValue("user", user);
 
         return template.query(sql.toString(), mapSqlParameterSource, new UsuarioRowMapper()).stream().findFirst();
-
     }
 
     public Optional<Usuario> findById(Long idUsuario) {

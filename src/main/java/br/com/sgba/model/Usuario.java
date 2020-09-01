@@ -45,7 +45,7 @@ public class Usuario implements UserDetails {
     }
 
     public Boolean getContaBloqueada() {
-        return contaBloqueada;
+        return !contaBloqueada;
     }
 
     public void setContaBloqueada(Boolean contaBloqueada) {
@@ -82,7 +82,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return this.contaBloqueada;
+        return !this.contaBloqueada;
     }
 
     @Override
