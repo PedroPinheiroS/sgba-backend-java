@@ -1,13 +1,24 @@
 package br.com.sgba.service.impl;
 
+import br.com.sgba.model.Funcionario;
+import br.com.sgba.repository.impl.FuncionarioRepositoryImpl;
+import br.com.sgba.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FuncionarioServiceImpl {
+public class FuncionarioServiceImpl implements FuncionarioService {
 
     @Autowired
-    private FuncionarioServiceImpl funcionarioService;
+    FuncionarioRepositoryImpl funcionarioRepository;
+
+    @Override
+    public Funcionario novoFuncionario(Funcionario funcionario, Long id) {
+        funcionario.setIdFuncionario(funcionarioRepository.novoFuncionario(funcionario,id));
+        funcionario.setIdUsuario(id);
+
+        return funcionario;
+    }
 
     /*
         Essa é a classe onde fica a lógica de programação.

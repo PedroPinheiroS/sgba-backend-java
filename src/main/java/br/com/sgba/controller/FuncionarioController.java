@@ -29,6 +29,8 @@ public class FuncionarioController implements FuncionarioResource {
 
         Long id = tokenService.getIdUsuario(jwt.substring(7));
 
+        funcionarioService.novoFuncionario(funcionario, id);
+
     /* TODO
         O endpoint deve ser responsável pela inclusão de um novo funcionario para o respectivo usuario que está fazendo a requisição.
         De acordo com a estrutura que passei para vocês do banco, o usuário do sistema é a chave principal para tudo praticamente.
@@ -38,8 +40,6 @@ public class FuncionarioController implements FuncionarioResource {
         Por padrão Rest, é necessário que quando um dado é criado no banco o response status seja 201 e seja retornado o dado que foi criado no banco.
         Já deixei o retorno no modelo correto, basta vocês replicarem para os outros metodos da forma correta.
     */
-        funcionario.setIdFuncionario(1L);
-        funcionario.setIdUsuario(id);
 
         // Essa URI deve ser devolvida onde está null quando a implementação do metodo de busca por id estiver pronto.
         /*URI uri = ServletUriComponentsBuilder.fromCurrentRequest()

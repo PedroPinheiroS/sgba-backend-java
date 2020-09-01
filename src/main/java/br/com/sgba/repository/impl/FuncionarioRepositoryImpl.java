@@ -15,16 +15,16 @@ public class FuncionarioRepositoryImpl implements FuncionarioRepository {
     NamedParameterJdbcTemplate template;
 
     @Override
-    public void novoFuncionario(Funcionario funcionario, Long usuarioId) {
+    public Long novoFuncionario(Funcionario funcionario, Long usuarioId) {
         StringBuilder query = new StringBuilder();
 
-        query.append(" INSERT INTO FUNCIONARIO VALUES (nextval('id_funcionario_sequence'),:nomeFuncionario, :idUsuario)");
+        query.append(" INSERT INTO FUNCIONARIO VALUES (nextval('id_funcionario_sequence'),:nomeFuncionario, :idUsuario) returning id_funcionario");
 
         MapSqlParameterSource map = new MapSqlParameterSource();
 
         map.addValue("idUsuario", usuarioId).addValue("nomeFuncionario", funcionario.getNome());
 
-        template.update(query.toString(), map);
+        return template.queryForObject(query.toString(), map, Long.class);
     }
 
     @Override

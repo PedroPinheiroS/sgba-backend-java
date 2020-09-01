@@ -4,7 +4,7 @@ import br.com.sgba.model.Funcionario;
 
 public interface FuncionarioRepository {
 
-    void novoFuncionario(Funcionario funcionario, Long usuarioId);
+    Long novoFuncionario(Funcionario funcionario, Long usuarioId);
 
     Funcionario buscarFuncionarioPorId(String nome);
 
