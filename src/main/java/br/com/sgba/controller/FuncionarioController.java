@@ -25,11 +25,11 @@ public class FuncionarioController implements FuncionarioResource {
     private FuncionarioServiceImpl funcionarioService;
 
     @Override
-    public ResponseEntity novo(@RequestHeader(value = "Authorization") String jwt, @RequestBody Funcionario funcionario) {
-
-        Long id = tokenService.getIdUsuario(jwt.substring(7));
-
-        funcionarioService.novoFuncionario(funcionario, id);
+    public ResponseEntity novo( @RequestBody Funcionario funcionario) {
+//        @RequestHeader(value = "Authorization") String jwt,
+//        Long id = tokenService.getIdUsuario(jwt.substring(7));
+//
+//        funcionarioService.novoFuncionario(funcionario, id);
 
     /* TODO
         O endpoint deve ser responsável pela inclusão de um novo funcionario para o respectivo usuario que está fazendo a requisição.
@@ -63,6 +63,11 @@ public class FuncionarioController implements FuncionarioResource {
 
     @Override
     public ResponseEntity<Void> atualizar(@RequestHeader(value = "Authorization") String jwt, Integer funcionarioId) {
+        /*
+        * TODO
+        * Atualizar funcionario por ID
+        * Levando em consideração o id do usuario que está realizando a chamada
+        * */
         return null;
     }
 }

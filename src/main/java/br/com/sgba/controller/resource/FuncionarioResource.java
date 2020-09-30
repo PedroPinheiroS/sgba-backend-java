@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 public interface FuncionarioResource {
 
     @PostMapping(value = "/novo")
-    ResponseEntity novo(String jwt, Funcionario funcionario);
+    ResponseEntity novo(Funcionario funcionario);
 
 
     @GetMapping(value = "/{funcionarioId}")
