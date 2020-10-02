@@ -90,7 +90,9 @@
 
     </dependencies>
 
+    <packaging>jar</packaging>
     <build>
+        <finalName>sgba-springboot-application</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
