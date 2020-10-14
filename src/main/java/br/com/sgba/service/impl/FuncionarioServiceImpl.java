@@ -14,7 +14,9 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 
     @Override
     public Funcionario novoFuncionario(Funcionario funcionario, Long id) {
+
         funcionario.setIdFuncionario(funcionarioRepository.novoFuncionario(funcionario,id));
+
         funcionario.setIdUsuario(id);
 
         return funcionario;
