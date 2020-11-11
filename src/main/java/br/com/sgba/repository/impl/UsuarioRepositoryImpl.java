@@ -1,5 +1,6 @@
 package br.com.sgba.repository.impl;
 
+import br.com.sgba.model.Funcionario;
 import br.com.sgba.model.Usuario;
 import br.com.sgba.repository.RowMapper.UsuarioRowMapper;
 import br.com.sgba.repository.UsuarioRepository;
@@ -39,4 +40,17 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
         return template.query(sql.toString(), mapSqlParameterSource, new UsuarioRowMapper()).stream().findFirst();
 
     }
+
+    public Long novoUsuario(Usuario usuario, Long usuarioId){
+        StringBuilder query = new StringBuilder();
+        /*Não estou com acesso ao banco pra ver o nome das variaveis.Corrigir depois*/
+        query.append("INSERT INTO USUARIO VALUES (nextval('id_usuario_sequence'),:loginUsuario, :senhaUsuario ) returning id_usuario");
+        MapSqlParameterSource map = new MapSqlParameterSource();
+
+        map.addValue("idUsuario", usuarioId).addValue("loginUsuario",usuario.getLogin()).addValue("senhaUsuario", usuario.getSenha());
+
+        return template.queryForObject(query.toString(),map, Long.class);
+    }
+
+
 }
